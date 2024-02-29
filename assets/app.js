@@ -7,5 +7,5 @@ import './bootstrap.js';
  */
 import './styles/app.css';
 import './styles/app.tailwind.css';
-import './scripts/preline.js';
+import './script/preline.js';
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
