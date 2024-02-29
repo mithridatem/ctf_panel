@@ -1,20 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello RegisterController!{% endblock %}
+{% block title %}Admin Register{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/symfony_cda/ctf_panel/src/Controller/RegisterController.php</code></li>
-        <li>Your template at <code>C:/symfony_cda/ctf_panel/templates/register/index.html.twig</code></li>
-    </ul>
+<section class="w-full max-w-md mx-auto p-6">
+<div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
+    <div class="p-4 sm:p-7">
+        <div class="text-center">
+            <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Ajouter un Admin</h1>
+        </div>
+        <div class="mt-5">
+        {{ form_start(form) }}
+        <div class="grid gap-y-4">
+            <div>
+                {{ form_label(form.email) }}
+                <div class="relative">
+                    {{ form_widget(form.email) }}
+                </div>
+            </div>
+            <div>
+                {{ form_label(form.password) }}
+                <div class="relative">
+                    {{ form_widget(form.password) }}
+                </div>
+            </div>
+            <button type="submit" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Inscription</button>
+        {{ form_rest(form) }}
+        </div>
+        {{ form_end(form) }}
+        </div>
+    </div>
 </div>
+</section>
+{% include "_components/_toast.html.twig" %}
 {% endblock %}
