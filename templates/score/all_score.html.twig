@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Classement{% endblock %}
+
+{% block body %}
+    <h1>Classement</h1>
+    {% for score in scores %}
+        <p>{{ score.participant.nom }} : {{score.participant.prenom }}</p>
+        <p>Nombre de pts : 
+            {% set total = 0 %}
+            {% for pts in score.flags %}
+                {% set total = total + pts.valeur %}
+            {% endfor %}
+            {{ total }}</p>
+    {% endfor %} 
+{% endblock %}

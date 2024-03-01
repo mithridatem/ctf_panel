@@ -102,4 +102,14 @@ class ScoreController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    #[Route('/score/all', name:'app_score_all')]
+    public function showScore() : Response 
+    {
+        $scores = $this->scoreRepository->findAll();
+        
+        return $this->render('score/all_score.html.twig', [
+            'scores' => $scores,
+        ]);
+    }
 }
