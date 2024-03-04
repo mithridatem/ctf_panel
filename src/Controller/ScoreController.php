@@ -108,7 +108,7 @@ class ScoreController extends AbstractController
     {
         $scores = $this->scoreRepository->findAll();
         
-        return $this->render('score/all_score.html.twig', [
+        return $this->render('score/stat_score.html.twig', [
             'scores' => $scores,
         ]);
     }
