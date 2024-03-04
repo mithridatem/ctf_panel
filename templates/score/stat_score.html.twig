@@ -20,18 +20,26 @@
     {% endfor %}
     {% set score = score|merge([total]) %}
 {% endfor %}
-<p>{{ joueur | join(', ') }}</p>
-<p>{{ score | join(', ') }}</p>
+<script>
+    let label = [];
+    let scores = [];
+</script>
+{% for row in joueur %}
+    <script> label.push("{{row}}")</script>
+{% endfor %}
+{% for row in score %}
+    <script> scores.push("{{row}}")</script>
+{% endfor %}
 <script>
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             //labels:  "{{ joueur |join(', ') }}",
-            labels:  ["{{ joueur[0] }}","{{ joueur[1] }}","{{ joueur[2] }}"],
+            labels:  label,
             datasets: [{
                 label: 'score',
-                data: ["{{ score[0]}}", "{{score[1]}}", "{{score[2] }}"],
+                data: scores,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
