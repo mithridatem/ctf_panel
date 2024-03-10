@@ -13,12 +13,14 @@
 {% set joueur = [] %}
 {% set score = [] %}
 {% for s in scores %}
-    {% set joueur = joueur|merge([s.participant.nom]) %}
-    {% set total = 0 %}
-    {% for pts in s.flags %}
-        {% set total = total + pts.valeur %}
-    {% endfor %}
-    {% set score = score|merge([total]) %}
+    {% if s.participant.nom is not null %}
+        {% set joueur = joueur|merge([s.participant.nom]) %}
+        {% set total = 0 %}
+        {% for pts in s.flags %}
+            {% set total = total + pts.valeur %}
+        {% endfor %}
+        {% set score = score|merge([total]) %}
+    {% endif %}   
 {% endfor %}
 <script>
     let label = [];
