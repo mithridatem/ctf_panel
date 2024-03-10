@@ -13,7 +13,7 @@
 {% set joueur = [] %}
 {% set score = [] %}
 {% for s in scores %}
-    {% if s.participant.nom is not null %}
+    {% if s.participant.nom is defined %}
         {% set joueur = joueur|merge([s.participant.nom]) %}
         {% set total = 0 %}
         {% for pts in s.flags %}
