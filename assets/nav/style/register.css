@@ -1,0 +1,122 @@
+.register{
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10vh;
+    border:1px solid #c5c5c5;
+    background-color: rgb(248, 248, 248);
+    border-radius: 30px;
+    align-items: center;
+}
+.register--input{
+    width: 25vw;
+    height: 5vh;
+    border:1px solid #7a7979;
+    outline: none;
+    border-radius: 10px;
+    margin-bottom: 2vh;
+    text-align: center;
+}
+.register--input:focus{
+    outline: none;
+    border:2px solid #ea0808;
+}
+.register--label{
+    width: 25vw;
+    height: 2vh;
+    padding-left: 2vw;
+}
+.modal{
+    display: none;
+    width: 30vw;
+    position: absolute;
+    top: 33vh;
+    left: 32.5vw;
+    z-index: 2;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    background-color: rgba(168, 168, 168, 0.969);
+    border:1px solid #7a7979;
+    padding: 2vw;
+}
+.modal--content{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    justify-content: center;
+    align-items: center;
+}
+.modal--content span{
+    align-self: flex-end;
+    font-size: 2rem;
+    color:#ea0808;
+    cursor: pointer;
+}
+#message--modal{
+    text-align: center;
+    width: 25vw;
+    background-color: aqua;
+}
+.modal--button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 20vw;
+}
+.modal-show{
+    display: flex;
+}
+
+.displayFlex{
+    display: flex;
+}
+
+.displayNone{
+    display: none;
+}
+.flag--hidden{
+    color: white;
+}
+/* modal information */
+.modal--info{
+    display: none;
+    width: 34vw;
+    z-index: 2;
+    position: absolute;
+    top: 34vh;
+    left: 32vw;
+    background-color: rgb(248, 248, 248);
+    border-radius: 30px;
+    flex-direction: column;
+    padding: 10px;
+    border: #7a7979 1px solid;
+}
+.modal--info--content h2{
+    text-align: center;
+    height: 2vh;
+}
+.modal--info--button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 2vh;
+}
+#message--info{
+    text-align: justify;
+}
+.is-blurred {
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+}
+.is-no-blurred {
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+}
+#secret{
+    width: 20px;
+    height: 20px;
+}

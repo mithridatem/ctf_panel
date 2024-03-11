@@ -1,74 +1,86 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="fr">
 
-{% block title %}chart score{% endblock %}
-
-{% block body %}
-
-</script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<div class="container mx-auto px-4 py-6 mt-20">
-    <canvas id="myChart"></canvas>
-</div> 
-{% set joueur = [] %}
-{% set score = [] %}
-{% for s in scores %}
-    {% if s.participant.nom is defined %}
-        {% set joueur = joueur|merge([s.participant.nom]) %}
-        {% set total = 0 %}
-        {% for pts in s.flags %}
-            {% set total = total + pts.valeur %}
-        {% endfor %}
-        {% set score = score|merge([total]) %}
-    {% endif %}   
-{% endfor %}
-<script>
-    let label = [];
-    let scores = [];
-</script>
-{% for row in joueur %}
-    <script> label.push("{{row}}")</script>
-{% endfor %}
-{% for row in score %}
-    <script> scores.push("{{row}}")</script>
-{% endfor %}
-<script>
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            //labels:  "{{ joueur |join(', ') }}",
-            labels:  label,
-            datasets: [{
-                label: 'score',
-                data: scores,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="{{asset('./nav/style/base.css')}}">
+    <link rel="stylesheet" href="{{asset('./nav/style/style.css')}}">
+    <script src="https://kit.fontawesome.com/707f08755a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <img src="{{asset('./nav/img/logo_ardrar.png')}}" alt="Logo de l'ADRAR Pôle Numérique">
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-house"></i></a></li>
+            </ul>
+        </nav>
+        <div></div>
+    </header>
+    
+    <div class="chart">
+        <canvas id="myChart"></canvas>
+    </div> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {% set joueur = [] %}
+    {% set score = [] %}
+    {% for s in scores %}
+        {% if s.participant.nom is defined %}
+            {% set joueur = joueur|merge([s.participant.nom]) %}
+            {% set total = 0 %}
+            {% for pts in s.flags %}
+                {% set total = total + pts.valeur %}
+            {% endfor %}
+            {% set score = score|merge([total]) %}
+        {% endif %}   
+    {% endfor %}
+    <script>
+        let label = [];
+        let scores = [];
+    </script>
+    {% for row in joueur %}
+        <script> label.push("{{row}}")</script>
+    {% endfor %}
+    {% for row in score %}
+        <script> scores.push("{{row}}")</script>
+    {% endfor %}
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels:  label,
+                datasets: [{
+                    label: 'score',
+                    data: scores,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
-    });
-</script>
-
-{% endblock %}
+        });
+    </script>
+</body>

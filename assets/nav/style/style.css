@@ -1,0 +1,112 @@
+main {
+    padding: 0 20vw;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--size-regular);
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark-color);
+    border-radius: var(--size-h1);
+    box-shadow: 0.3rem 0.3rem 1rem var(--dark-color);
+    padding: var(--size-regular);
+    width: 300px;
+    h2 {
+        min-height: calc(2.5*var(--size-h2));
+    }
+    h2,
+    i,
+    span {
+        color: var(--tertiary-color);
+    }
+    i {
+        font-size: var(--size-h1);
+        margin-right: var(--size-regular);
+    }
+    h3 span {
+        font-size: var(--size-h3);
+    }
+    h3 span:first-child {
+        font-weight: 700;
+    }
+    p {
+        color: var(--light-color);
+    }
+    .flag__description {
+        min-height: 200px;
+    }
+    .flag__gain {
+        display: flex;
+        justify-content: space-between;
+    }
+    div {
+        display: flex;
+        justify-content: space-around;
+    }
+    a {
+        align-self: center;
+    }
+    img {
+        position: relative;
+        right: -80%;
+        top: -5%;
+        transform: rotate(20deg);
+        height: 80px;
+        width: 80px;
+        margin-bottom: -80px;
+    }
+}
+
+.displayCodeFlag {
+    align-items: center;
+    background-color: var(--primary-color);
+    opacity: 0.95;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.zoom {
+    animation: zoom 1s;
+}
+
+.reduce {
+    animation: reduce 1s;
+}
+
+.displayFlex {
+    display: flex;
+    justify-content: center;
+}
+
+.displayNone {
+    display: none;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0);
+        transform-origin: center;
+    }
+    to {
+        transform: scale(1);
+        transform-origin: center;
+    }
+}
+
+@keyframes reduce {
+    from {
+        transform: scale(1);
+        transform-origin: center;
+    }
+    to {
+        transform: scale(0);
+        transform-origin: center;
+    }
+}
